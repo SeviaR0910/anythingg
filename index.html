@@ -1,0 +1,352 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Nabila's Birthday</title>
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,500;0,600;0,700;1,500;1,600&family=Poppins:wght@300;400;500;600&display=swap" rel="stylesheet">
+<link rel="stylesheet" href="style.css">
+</head>
+<body class="locked">
+
+<div id="bg"></div>
+<div id="depth">0 M BELOW SURFACE</div>
+<div id="rail"><div id="rail-fill"></div><div id="rail-num">00</div></div>
+
+<!-- ================= MUSIC PLAYER ================= -->
+<!-- EDIT ME: put your own mp3 in the music/ folder and point src at it.
+     Change the text inside #songTitle to the song name you want shown. -->
+<audio id="bgMusic" src="music/song.mp3" loop preload="auto"></audio>
+<div id="player" class="show-hint">
+  <button id="playerBtn" aria-label="Play music">
+    <span class="bars"><i></i><i></i><i></i><i></i></span>
+    <svg id="playIcon" viewBox="0 0 24 24" fill="currentColor"><path d="M8 5v14l11-7z"/></svg>
+    <svg id="pauseIcon" viewBox="0 0 24 24" fill="currentColor" style="display:none"><path d="M6 5h4v14H6zM14 5h4v14h-4z"/></svg>
+  </button>
+  <span id="songTitle">tap to play the song</span>
+</div>
+
+<!-- ================= PASSCODE GATE ================= -->
+<div id="gate">
+  <div class="gate-card">
+    <div class="gate-icon">&#10003;</div>
+    <div class="gate-eyebrow">— For Your Eyes Only —</div>
+    <div class="gate-title">Enter Your Secret Code</div>
+    <div class="gate-sub">Something has been waiting just past the surface, only for you.</div>
+    <div class="code-row" id="codeRow">
+      <input maxlength="1" inputmode="numeric" class="code-box" data-i="0">
+      <input maxlength="1" inputmode="numeric" class="code-box" data-i="1">
+      <input maxlength="1" inputmode="numeric" class="code-box" data-i="2">
+      <input maxlength="1" inputmode="numeric" class="code-box" data-i="3">
+    </div>
+    <button class="gate-btn" id="submitCode">Unlock</button>
+    <div class="gate-error" id="gateError"></div>
+    <div class="gate-hint" id="gateHint">hint: the day this all began — MMDD</div>
+  </div>
+</div>
+
+<!-- ================= NAV ================= -->
+<header>
+  <div class="brand"><span class="brand-mark">&#9825;</span> Nabila's Birthday</div>
+  <nav>
+    <a href="#surface" class="active">Surface</a>
+    <a href="#memories">Our Memories</a>
+    <a href="#gallery">Gallery</a>
+    <a href="#letter">The Letter</a>
+    <a href="#wishes">Wishes</a>
+    <a href="#love">Our Playlist</a>
+  </nav>
+</header>
+
+<main>
+
+  <!-- ================= SURFACE / HERO ================= -->
+  <section id="surface">
+    <div class="eyebrow">A message carried in on the tide, for you</div>
+    <h1 class="hero-title">Happy Birthday,<br><em>My Favorite Person</em></h1>
+    <p class="lede">Somewhere past the breakers, ada a letter yang udah lama waiting for this day.
+      Scroll down, the tide is coming in, dan ternyata dia bawa something special just for <b>you</b>.</p>
+    <div class="btn-row">
+      <a href="#memories" class="btn btn-solid">Begin the Descent ↓</a>
+      <a href="#letter" class="btn btn-ghost">Jump Straight to the Letter</a>
+    </div>
+    <div class="scroll-cue">
+      <svg class="scroll-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+        <path d="M4 9c3-3 5-3 8 0s5 3 8 0" stroke-linecap="round"/>
+        <path d="M4 15l8 5 8-5" stroke-linecap="round" stroke-linejoin="round"/>
+      </svg>
+      Scroll to dive in
+    </div>
+  </section>
+
+  <div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,32 C240,60 480,4 720,24 C960,44 1200,10 1440,32 L1440,60 L0,60 Z" fill="rgba(255,255,255,0.03)"/></svg></div>
+
+  <!-- ================= MEMORIES ================= -->
+  <!-- EDIT ME: add/remove a whole .chapter block to add/remove a chapter -->
+  <section id="memories">
+    <div class="eyebrow">Chapters we've written, together</div>
+    <h1 class="hero-title sub">Our <em>Memories</em></h1>
+    <div class="timeline" id="timeline">
+      <div class="chapter" data-chapter>
+        <div class="chapter-num">Chapter One</div>
+        <div class="chapter-title">how it started</div>
+        <p class="chapter-text">two people who somehow just clicked, kayak udah ditakdirin gitu — no big fireworks, just quiet certainty from the very first conversation.</p>
+      </div>
+      <div class="chapter" data-chapter>
+        <div class="chapter-num">Chapter Two</div>
+        <div class="chapter-title">the good days</div>
+        <p class="chapter-text">late night calls yang gapernah ngebosenin, inside jokes nobody else gets, and a thousand small ordinary moments that somehow felt like the best part of my day.</p>
+      </div>
+      <div class="chapter" data-chapter>
+        <div class="chapter-num">Chapter Three</div>
+        <div class="chapter-title">through the storms</div>
+        <p class="chapter-text">we've had our rough patches fr, ada badai dan chaos juga, but somehow kita selalu find our way back to each other.</p>
+      </div>
+      <div class="chapter" data-chapter>
+        <div class="chapter-num">Chapter Four</div>
+        <div class="chapter-title">where we are now</div>
+        <p class="chapter-text">still choosing you, still picking every single time — dan honestly, i'd sign up for all of it again in a heartbeat.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,28 C240,0 480,56 720,30 C960,4 1200,50 1440,20 L1440,60 L0,60 Z" fill="rgba(255,255,255,0.03)"/></svg></div>
+
+  <!-- ================= GALLERY ================= -->
+  <!-- EDIT ME: change each src="photos/N.jpg" to your own photo, and edit the
+       caption text in the .g-caption div. Add/remove a whole .g-card block
+       to add/remove a photo. Just drop your image files into the photos/
+       folder. Click any photo to open it full-screen with left/right arrows. -->
+  <section id="gallery">
+    <div class="eyebrow">A few frames worth keeping</div>
+    <h1 class="hero-title sub">Gallery</h1>
+    <div class="gallery-grid" id="galleryGrid">
+      <div class="g-card" data-photo>
+        <img class="g-photo" src="photos/1.jpg" alt="">
+        <div class="g-caption">ngl one smile from you and my whole day just gets so much better.</div>
+      </div>
+      <div class="g-card" data-photo>
+        <img class="g-photo" src="photos/2.jpg" alt="">
+        <div class="g-caption">you're literally the reason my heart feels this full, no cap.</div>
+      </div>
+      <div class="g-card" data-photo>
+        <img class="g-photo" src="photos/3.jpg" alt="">
+        <div class="g-caption">every single sec with you is hands down my fave.</div>
+      </div>
+      <div class="g-card" data-photo>
+        <img class="g-photo" src="photos/4.jpg" alt="">
+        <div class="g-caption">some people search their whole life for happiness, i just found it in you, fr.</div>
+      </div>
+      <div class="g-card" data-photo>
+        <img class="g-photo" src="photos/5.jpg" alt="">
+        <div class="g-caption">you turned my whole ordinary life into something this beautiful, idk how.</div>
+      </div>
+      <div class="g-card" data-photo>
+        <img class="g-photo" src="photos/6.jpg" alt="">
+        <div class="g-caption">my heart genuinely feels safest whenever it's with you.</div>
+      </div>
+      <div class="g-card" data-photo>
+        <img class="g-photo" src="photos/7.jpg" alt="">
+        <div class="g-caption">if i could relive literally any moment, i'd pick us every single time.</div>
+      </div>
+      <div class="g-card" data-photo>
+        <img class="g-photo" src="photos/8.jpg" alt="">
+        <div class="g-caption">still my favorite person, like, always and forever.</div>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,32 C240,60 480,4 720,24 C960,44 1200,10 1440,32 L1440,60 L0,60 Z" fill="rgba(255,255,255,0.03)"/></svg></div>
+
+  <!-- ================= LETTER ================= -->
+  <!-- EDIT ME: the paragraph text is typed in automatically from
+       LETTER_PARAGRAPHS at the top of script.js — edit it there.
+       Keep the number of <p data-p></p> lines below equal to the
+       number of paragraphs in that list. -->
+  <section id="letter">
+    <div class="eyebrow">A bottle, finally ashore for you</div>
+    <h1 class="hero-title sub3">Open when <em>found</em></h1>
+
+    <div id="bottleStage">
+      <svg id="bottleSvg" viewBox="0 0 120 220" width="140" height="256">
+        <rect x="50" y="8" width="20" height="18" rx="3" stroke="var(--gold)" stroke-width="2.5" fill="none"/>
+        <path d="M42 26 h36 v14 c14 10 20 26 20 46 v96 c0 12 -9 22 -21 22 H43 c-12 0 -21 -10 -21 -22 V86 c0 -20 6 -36 20 -46 z"
+              stroke="var(--gold)" stroke-width="2.5" fill="rgba(240,215,140,0.05)"/>
+        <path d="M22.5 150 c0 0 12 -7 37.5 -7 s37.5 7 37.5 7 v52 c0 12 -9 22 -21 22 H43 c-12 0 -21 -10 -21 -22 z"
+              fill="#caa24a" opacity="0.85"/>
+        <rect x="34" y="96" width="52" height="20" rx="2" fill="rgba(255,255,255,0.85)" transform="rotate(-3 60 106)"/>
+      </svg>
+      <div class="scroll-cue" id="bottleHint" style="margin-top:18px;">
+        <svg class="scroll-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M12 4v13M12 17l-5-5M12 17l5-5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Tap the bottle to open it
+      </div>
+    </div>
+
+    <div class="letter-card" id="letterCard">
+      <div class="letter-salute">Dear you,</div>
+      <div class="letter-body" id="letterBody">
+        <p data-p></p>
+        <p data-p></p>
+        <p data-p></p>
+        <p data-p></p>
+      </div>
+      <div class="letter-sign">— with so much love, always</div>
+    </div>
+  </section>
+
+  <div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,28 C240,0 480,56 720,30 C960,4 1200,50 1440,20 L1440,60 L0,60 Z" fill="rgba(255,255,255,0.03)"/></svg></div>
+
+  <!-- ================= WISHES ================= -->
+  <!-- EDIT ME: add/remove a whole .wish-card block to add/remove a wish -->
+  <section id="wishes">
+    <div class="eyebrow">Sent with the current, for you</div>
+    <h1 class="hero-title sub2">Wishes for <em>the year ahead</em></h1>
+    <div class="wish-grid">
+      <div class="wish-card" data-wish>
+        <div class="wish-icon">&#127754;</div>
+        <p>may this year give you all the calm of the ocean, dan sedalam itu juga hati kamu yang selalu penuh dengan kindness, fr.</p>
+      </div>
+      <div class="wish-card" data-wish>
+        <div class="wish-icon">&#9728;&#65039;</div>
+        <p>hope your days stay this bright, kayak sun yang mantul di atas water, and your nights tetap peaceful seperti tide yang pelan-pelan balik ke laut.</p>
+      </div>
+      <div class="wish-card" data-wish>
+        <div class="wish-icon">&#11088;</div>
+        <p>may every lil wish kamu pelan-pelan come true, exactly when you need it the most, no cap.</p>
+      </div>
+      <div class="wish-card" data-wish>
+        <div class="wish-icon">&#129504;</div>
+        <p>wherever this year takes you, i hope kamu selalu find your way back to the people who genuinely care and adore you.</p>
+      </div>
+      <div class="wish-card" data-wish>
+        <div class="wish-icon">&#9875;</div>
+        <p>stay grounded, stay grateful, and tbh tetap jadi kamu yang sekarang — beautiful in your own way, always.</p>
+      </div>
+      <div class="wish-card" data-wish>
+        <div class="wish-icon">&#128156;</div>
+        <p>happy birthday istg — cheers buat another year penuh memories yang bakal selalu worth keeping.</p>
+      </div>
+      <div class="wish-card" data-wish>
+        <div class="wish-icon">&#128032;</div>
+        <p>semoga rejeki kamu sederas ombak, dateng terus tanpa putus, and every hard season eventually passes like the tide always does.</p>
+      </div>
+      <div class="wish-card" data-wish>
+        <div class="wish-icon">&#128506;&#65039;</div>
+        <p>here's to more adventures, more laughter, and more moments yang bakal jadi cerita seru buat diceritain nanti.</p>
+      </div>
+    </div>
+  </section>
+
+  <div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,32 C240,60 480,4 720,24 C960,44 1200,10 1440,32 L1440,60 L0,60 Z" fill="rgba(255,255,255,0.03)"/></svg></div>
+
+  <!-- ================= LOVE / PLAYLIST ================= -->
+  <!-- EDIT ME: paste your Spotify playlist (or album/track) link in
+       script.js — the SPOTIFY_PLAYLIST_URL constant near the top. -->
+  <section id="love">
+    <div class="eyebrow">A love must you like</div>
+    <h1 class="hero-title sub3">Hold on <em>tight</em></h1>
+
+    <div id="loveStage">
+      <div class="heart-hold" id="heartHold">
+        <div class="heart-visual">
+          <svg class="heart-ring" viewBox="0 0 140 140" width="140" height="140">
+            <circle class="heart-ring-bg" cx="70" cy="70" r="62"/>
+            <circle class="heart-ring-fill" id="heartRingFill" cx="70" cy="70" r="62"/>
+          </svg>
+          <svg class="heart-icon" viewBox="0 0 100 90" width="72" height="65">
+            <defs>
+              <clipPath id="heartClip">
+                <rect id="heartClipRect" x="0" y="90" width="100" height="0"/>
+              </clipPath>
+            </defs>
+            <path class="heart-outline" d="M50 82 C 15 58, 2 38, 2 22 C 2 6, 16 -3, 30 3 C 40 7, 47 16, 50 22 C 53 16, 60 7, 70 3 C 84 -3, 98 6, 98 22 C 98 38, 85 58, 50 82 Z"/>
+            <path class="heart-fill" clip-path="url(#heartClip)" d="M50 82 C 15 58, 2 38, 2 22 C 2 6, 16 -3, 30 3 C 40 7, 47 16, 50 22 C 53 16, 60 7, 70 3 C 84 -3, 98 6, 98 22 C 98 38, 85 58, 50 82 Z"/>
+          </svg>
+        </div>
+        <div class="heart-percent" id="heartPercent">0%</div>
+      </div>
+      <div class="scroll-cue" id="loveHint" style="margin-top:14px;">
+        <svg class="scroll-wave" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.4">
+          <path d="M12 4v13M12 17l-5-5M12 17l5-5" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        Tap the love completed 100%
+      </div>
+    </div>
+
+    <div class="letter-card spotify-card" id="spotifyCard">
+      <div class="spotify-header">
+        <svg viewBox="0 0 24 24" width="20" height="20" fill="#1DB954"><path d="M12 0C5.4 0 0 5.4 0 12s5.4 12 12 12 12-5.4 12-12S18.66 0 12 0zm5.521 17.34c-.24 0-.36-.06-.6-.18-2.28-1.319-5.16-1.68-8.52-.9-.36.12-.6-.12-.72-.42-.12-.36.12-.6.42-.72 3.66-.84 6.9-.48 9.42 1.02.36.18.36.48.24.84 0 .18-.24.36-.24.36zm1.44-3.3c-.3 0-.48-.12-.6-.24-2.58-1.56-6.42-2.16-9.42-1.14-.36.12-.72-.06-.84-.42-.12-.36.06-.72.42-.84 3.42-1.02 7.68-.42 10.62 1.32.3.18.42.6.24.9-.12.24-.3.42-.42.42zm.12-3.36c-3.06-1.8-8.16-1.98-11.1-1.08-.42.12-.9-.12-1.02-.54-.12-.42.12-.9.54-1.02C11 6.06 16.68 6.3 20.22 8.4c.42.24.54.78.3 1.2-.24.3-.78.42-1.2.18z"/></svg>
+        <span>our playlist</span>
+      </div>
+      <div class="spotify-embed-wrap" id="spotifyEmbedWrap">
+        <iframe id="spotifyIframe" src="" width="100%" height="352" frameborder="0"
+          allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+          loading="lazy" title="Spotify playlist"></iframe>
+        <div class="spotify-placeholder" id="spotifyPlaceholder">
+          add your Spotify playlist link in <code>script.js</code><br>(<code>SPOTIFY_PLAYLIST_URL</code>) to show it here.
+        </div>
+      </div>
+      <a id="spotifyOpenLink" class="spotify-open-link" href="#" target="_blank" rel="noopener">Open in Spotify &#8599;</a>
+    </div>
+  </section>
+
+  <div class="wave-divider"><svg viewBox="0 0 1440 60" preserveAspectRatio="none"><path d="M0,28 C240,0 480,56 720,30 C960,4 1200,50 1440,20 L1440,60 L0,60 Z" fill="rgba(255,255,255,0.03)"/></svg></div>
+
+  <!-- ================= CLOSING ================= -->
+  <section id="closing">
+    <div class="eyebrow">Resurfacing · almost there</div>
+    <h1 class="hero-title">Happy Birthday,<br><em>Sayangkuu.</em></h1>
+    <p class="lede">Thank you for letting me make a little fuss over you today. Makasih udah ngasih aku kesempatan
+      buat bikin hari kamu terasa sedikit lebih special. Here's to another year of good tides, cerita-cerita
+      yang lebih indah, dan hari-hari kecil yang mungkin sederhana tapi worth keeping forever. Semoga semua
+      momen baik pelan-pelan datang ke kamu, stay warm, and keep shining the way you always do.</p>
+
+    <div class="candle-hint">tap the candles to make a wish</div>
+    <div class="candles" id="candles">
+      <div class="candle" data-candle><div class="flame"></div><span class="smoke"></span><div class="candle-wick"></div><div class="candle-body"></div></div>
+      <div class="candle" data-candle><div class="flame"></div><span class="smoke"></span><div class="candle-wick"></div><div class="candle-body"></div></div>
+      <div class="candle" data-candle><div class="flame"></div><span class="smoke"></span><div class="candle-wick"></div><div class="candle-body"></div></div>
+      <div class="candle" data-candle><div class="flame"></div><span class="smoke"></span><div class="candle-wick"></div><div class="candle-body"></div></div>
+      <div class="candle" data-candle><div class="flame"></div><span class="smoke"></span><div class="candle-wick"></div><div class="candle-body"></div></div>
+    </div>
+    <div class="wish-granted" id="wishGranted">Wish granted.</div>
+  </section>
+
+  <footer>made with love, somewhere near the shoreline — <span>grzel labs</span></footer>
+
+</main>
+
+<!-- ================= LIGHTBOX (full-screen photo viewer) ================= -->
+<!-- kept outside <main> on purpose so it can float above every section -->
+<div id="lightbox">
+  <button id="lightboxClose" aria-label="Close">&#10005;</button>
+  <button id="lightboxPrev" class="lightbox-arrow left" aria-label="Previous photo">&#10094;</button>
+  <div class="lightbox-frame">
+    <img id="lightboxImg" src="" alt="">
+    <div id="lightboxCaption"></div>
+  </div>
+  <button id="lightboxNext" class="lightbox-arrow right" aria-label="Next photo">&#10095;</button>
+  <div id="lightboxCount"></div>
+</div>
+
+<!-- ================= CLOSING DOVE + FINALE MESSAGE ================= -->
+<!-- kept outside <main> on purpose so they stay sharp even while the -->
+<!-- rest of the page blurs out. Triggered from script.js once all candles -->
+<!-- are blown out. -->
+<div class="bird" id="bird1" data-fly-class="fly-1" style="top:18%;">
+  <div class="bird-sprite" id="birdSprite"></div>
+  <svg class="bird-letter" viewBox="0 0 20 14">
+    <rect x="0" y="0" width="20" height="14" rx="1" fill="#fff8e8" stroke="#caa24a" stroke-width="1.3"/>
+    <path d="M0,0 L10,8 L20,0" fill="none" stroke="#caa24a" stroke-width="1.3"/>
+  </svg>
+</div>
+
+<!-- EDIT ME: this is the big message shown once the page finishes closing. -->
+<div id="finaleMessage"><span class="finale-text" id="finaleText"></span></div>
+
+<script src="script.js"></script>
+</body>
+</html>
